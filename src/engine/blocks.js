@@ -308,12 +308,6 @@ class Blocks {
         const stage = this.runtime.getTargetForStage();
         const editingTarget = this.runtime.getEditingTarget();
 
-        // UI event: clicked scripts toggle in the runtime.
-        if (e.element === 'stackclick') {
-            this.runtime.toggleScript(e.blockId, {stackClick: true});
-            return;
-        }
-
         // Block create/update/destroy
         switch (e.type) {
         case 'create': {
@@ -502,6 +496,10 @@ class Blocks {
 
                 this.emitProjectChanged();
             }
+            break;
+        case 'stackClick':
+            // UI event: clicked scripts toggle in the runtime.
+            this.runtime.toggleScript(e.blockId, {stackClick: true});
             break;
         }
     }
