@@ -497,9 +497,11 @@ class Blocks {
                 this.emitProjectChanged();
             }
             break;
-        case 'stackClick':
+        case 'click':
             // UI event: clicked scripts toggle in the runtime.
-            this.runtime.toggleScript(e.blockId, {stackClick: true});
+            if (e.targetType === 'block') {
+                this.runtime.toggleScript(this.getTopLevelScript(e.blockId), {stackClick: true});
+            }
             break;
         }
     }
