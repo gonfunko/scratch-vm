@@ -430,8 +430,8 @@ class Blocks {
                     // comments, then the auto positioning should have taken place.
                     // Update the x and y position of these comments to match the
                     // one from the event.
-                    currTarget.comments[e.commentId].x = e.xy.x;
-                    currTarget.comments[e.commentId].y = e.xy.y;
+                    currTarget.comments[e.commentId].x = e.json.x;
+                    currTarget.comments[e.commentId].y = e.json.y;
                 }
             }
             this.emitProjectChanged();
