@@ -1224,6 +1224,10 @@ class Runtime extends EventEmitter {
                 blockJSON.outputShape =
                     ScratchBlocksConstants.OUTPUT_SHAPE_SQUARE;
                 blockJSON.nextStatement = null; // null = available connection; undefined = terminal
+                if (!blockJSON.extensions) {
+                    blockJSON.extensions = [];
+                }
+                blockJSON.extensions.push("shape_hat");
                 break;
             case BlockType.CONDITIONAL:
             case BlockType.LOOP:
